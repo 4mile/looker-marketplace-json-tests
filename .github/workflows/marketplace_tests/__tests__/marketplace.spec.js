@@ -1,11 +1,19 @@
 const lookmlParser = require('lookml-parser')
+const findDuplicatedPropertyKeys = require('find-duplicated-property-keys');
 const Ajv = require("ajv")
-const ajv = new Ajv() // options can be passed, e.g. {allErrors: true}
 const fs = require('fs')
 const process = require('process')
+
+const ajv = new Ajv()
 process.chdir('../../../')
 const cwd = process.cwd();
-const marketplace = require(`${cwd}/marketplace.json`)
+const marketplaceRaw = fs.readFileSync('./marketplace.json', 'utf8');
+
+try {
+    var marketplace = JSON.parse(marketplaceRaw)
+} catch(e) {
+    console.log('marketplace is not valid json')
+}
 
 let schema = {
     type: "object",
@@ -36,12 +44,18 @@ describe('Marketplace Automation Tests', ()=> {
             return item.includes('dashboard.lookml')
         })
         expect(dashboardFiles.length).toBeGreaterThan(0);
-    })
-    
+    }) 
 })
 
+describe('Marketplace.json Schema:', ()=> {
 
-describe('Marketplace.json has valid JSON Schema', ()=> {
+    test('Markeplace.json contains valid JSON format.', ()=> {
+        try{
+            expect(JSON.parse(marketplaceRaw)).toBeDefined()
+        } catch(e) {
+            expect(JSON.parse(marketplaceRaw)).toThrow()
+        }
+    })
     test('label property exists and is valid', ()=> {
         schema = {...schema,
             properties: { label: {type: "string"}},
@@ -89,9 +103,8 @@ describe('Marketplace.json has valid JSON Schema', ()=> {
     })
 })
 
-
-describe('Constants Match Between Manifest.lkml and Marketplace.json', ()=>{
-    test( 'Constants Match', async ()=>{
+describe('Testing constants:', ()=>{
+    test( 'Constants Match Between Manifest and Marketplace', async ()=>{
         result = await lookmlParser.parseFiles({
             source:  `${cwd}/manifest.lkml`,
             fileOutput: "by-type",
@@ -108,5 +121,18 @@ describe('Constants Match Between Manifest.lkml and Marketplace.json', ()=>{
         } else constMatch = false   
         expect(constMatch).toBe(true)
 
+    })
+    test('Marketplace constants are unique', ()=> {
+    
+        const result = findDuplicatedPropertyKeys(marketplaceRaw) 
+        expect(result).toHaveLength(0)
+    })
+
+    test('Marketplace constants labels are unique', ()=> {
+        let constantLabels = Object.keys(marketplace.constants).map(item => item.label) 
+        const findDupes = array => array.filter((item, index) => array.indexOf(item) !== index)
+        const dupes = findDupes(constantLabels);
+
+        expect(dupes).toHaveLength(0)
     })
 })

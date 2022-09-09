@@ -17,6 +17,9 @@ This repository contains infomation and tests meant to streamline the validation
 3. Constants exist and match in:
     - Manifest.lkml
     - Marketplace.json
+4. Constants are unique in Marketplace.json
+5. Constants Labels are unique in Marketplace.json
+6. File extensions for model/views are `.lkml` and not `.lookml`
 
 ## Setup
 
@@ -24,4 +27,4 @@ This repository contains infomation and tests meant to streamline the validation
 
 2. Commit and PR to GitHub
 
-3. On GitHub Actions tab, see the CI execute and results of tests.
+3. On GitHub Actions tab, see the CI execution flow and results of tests.

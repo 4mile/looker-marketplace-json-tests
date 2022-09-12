@@ -1,3 +1,4 @@
+# Add this file to target repo at location /.github/workflows
 name: Marketplace Automation Tests
 
 on:
@@ -18,6 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: ./
+      - uses: 4mile/looker-marketplace-json-tests@main
+
+      # - uses: ./
         # with:
-        #  user: 'calvincheng919'
+        #  user: ['username']

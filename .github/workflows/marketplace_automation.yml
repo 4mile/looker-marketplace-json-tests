@@ -1,14 +1,12 @@
 name: Marketplace Automation Tests
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  repository_dispatch:
+    types: [json-tests]
 
 jobs:
-  build:
-
+  myEvent:
+  # build:
     runs-on: ubuntu-latest
 
     strategy:

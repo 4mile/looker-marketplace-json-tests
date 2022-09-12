@@ -6,7 +6,7 @@ This repository contains infomation and tests meant to streamline the validation
 
 1. Jest
 2. Test Reporter - Will report test results in GitHub Actions 
-3. GitHub Actions CI - Will run tests on PR
+3. GitHub Actions CI - Will run tests on PR or Push
 
 ## What will be Tested
 1. Existence of key files

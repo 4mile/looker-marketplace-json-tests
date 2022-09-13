@@ -11,7 +11,7 @@ runs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-      # working-directory: ./.github/workflows/marketplace_tests
+      working-directory: ./
       shell: bash
     - run: npm test
       # working-directory: ./.github/workflows/marketplace_tests

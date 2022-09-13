@@ -10,15 +10,15 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i ajv
+    - run: npm i ajv --global
       shell: bash
     - run: npm install jest --global
       shell: bash
     - run: npm i jest-junit
       shell: bash
-    - run: npm i lookml-parser
+    - run: npm i lookml-parser --global
       shell: bash
-    - run: npm i find-duplicated-property-keys
+    - run: npm i find-duplicated-property-keys --global
       shell: bash
     # - name: checkout
     #   uses: actions/checkout@v3 

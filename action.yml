@@ -3,7 +3,7 @@ name: Marketplace Automation Tests
 description: 'Marketplace Automation Tests'
 
 runs:
-  # using: "composite"
+  using: "composite"
   steps: 
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -11,8 +11,8 @@ runs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-      working-directory: ./.github/workflows/marketplace_tests
-      # shell: bash
+      # working-directory: ./.github/workflows/marketplace_tests
+      shell: bash
     - run: npm test
       working-directory: ./.github/workflows/marketplace_tests
       # shell: bash

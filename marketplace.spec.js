@@ -1,4 +1,4 @@
-const lookmlParser = require('lookml-parser')
+const lookmlParser = require('/home/runner/work/_actions/4mile/looker-marketplace-json-tests/main/node_modules/lookml-parser')
 const findDuplicatedPropertyKeys = require('find-duplicated-property-keys');
 const Ajv = require("ajv")
 const fs = require('fs')

@@ -20,7 +20,7 @@ runs:
       shell: bash
     - run: npm i find-duplicated-property-keys
       shell: bash
-    - run: jest --ci --reporters=default --reporters=jest-junit
+    - run: jest __tests__/marketplace.spec.js --ci --reporters=default --reporters=jest-junit
       shell: bash
     - name: Test Report
       uses: dorny/test-reporter@v1

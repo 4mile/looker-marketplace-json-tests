@@ -10,11 +10,17 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-      working-directory: ./
+    - run: npm i ajv
       shell: bash
-    - run: npm test
-      # working-directory: ./.github/workflows/marketplace_tests
+    - run: npm i jest
+      shell: bash
+    - run: npm i jest-junit
+      shell: bash
+    - run: npm i lookml-parser
+      shell: bash
+    - run: npm i find-duplicated-property-keys
+      shell: bash
+    - run: jest --ci --reporters=default --reporters=jest-junit
       shell: bash
     - name: Test Report
       uses: dorny/test-reporter@v1

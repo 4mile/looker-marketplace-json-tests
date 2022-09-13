@@ -5,5 +5,5 @@ module.exports = {
     "uniqueOutputName": "false",
     "suiteNameTemplate": "{filepath}",
     "classNameTemplate": "{classname}",
-    "titleTemplate": "{title}",
+    "titleTemplate": "{title}"
 }

@@ -1,4 +1,4 @@
-{
+module.exports = {
     "outputDirectory": "reports",
     "outputName": "jest-junit.xml",
     "ancestorSeparator": " › ",

@@ -1,6 +1,6 @@
-const lookmlParser = require('/home/runner/work/_actions/4mile/looker-marketplace-json-tests/main/node_modules/lookml-parser')
-const findDuplicatedPropertyKeys = require('find-duplicated-property-keys');
-const Ajv = require("ajv")
+const lookmlParser = require('/home/runner/work/covid-19-block/covid-19-block/node_modules/lookml-parser')
+const findDuplicatedPropertyKeys = require('/home/runner/work/_actions/4mile/looker-marketplace-json-tests/main/node_modules/find-duplicated-property-keys');
+const Ajv = require("/home/runner/work/_actions/4mile/looker-marketplace-json-tests/main/node_modules/ajv")
 const fs = require('fs')
 const process = require('process')
 

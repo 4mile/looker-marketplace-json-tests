@@ -14,7 +14,7 @@ runs:
       shell: bash
     - run: npm install jest --global
       shell: bash
-    - run: npm i jest-junit
+    - run: npm i jest-junit --global
       shell: bash
     - run: npm i lookml-parser
       shell: bash

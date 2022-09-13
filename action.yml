@@ -22,7 +22,7 @@ runs:
       shell: bash
     # - name: checkout
     #   uses: actions/checkout@v3 
-    - run: jest marketplace.spec.js --config=jest.config.js --ci --reporters=default --reporters=jest-junit
+    - run: jest ${{ github.action_path }}/marketplace.spec.js --config=${{ github.action_path }}/jest.config.js --ci --reporters=default --reporters=jest-junit
       shell: bash
     - name: Test Report
       uses: dorny/test-reporter@v1
@@ -32,4 +32,3 @@ runs:
         name: JEST Tests            # Name of the check run which will be created
         path: junit.xml             # Path to test results           path: reports/jest-*.xml    
         reporter: jest-junit        # Format of test results
-

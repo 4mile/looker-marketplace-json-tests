@@ -6,5 +6,4 @@ module.exports = {
     "suiteNameTemplate": "{filepath}",
     "classNameTemplate": "{classname}",
     "titleTemplate": "{title}",
-    "rootDir": ['/']
 }

@@ -22,7 +22,7 @@ runs:
       shell: bash
     - name: checkout
       uses: actions/checkout@v3 
-    - run: jest marketplace.spec.js --config=<rootDir>/jest.config.js --ci --reporters=default --reporters=jest-junit
+    - run: jest marketplace.spec.js --config=./jest.config.js --ci --reporters=default --reporters=jest-junit
       shell: bash
     - name: Test Report
       uses: dorny/test-reporter@v1

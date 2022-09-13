@@ -12,7 +12,7 @@ runs:
         node-version: ${{ matrix.node-version }}
     - run: npm i ajv
       shell: bash
-    - run: npm i jest
+    - run: npm install jest --global
       shell: bash
     - run: npm i jest-junit
       shell: bash

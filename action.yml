@@ -14,7 +14,7 @@ runs:
       shell: bash
     - run: npm install jest --global
       shell: bash
-    - run: npm i jest-junit --global
+    - run: npm i jest-junit
       shell: bash
     - run: npm i lookml-parser
       shell: bash
@@ -22,7 +22,8 @@ runs:
       shell: bash
     # - name: checkout
     #   uses: actions/checkout@v3 
-    - run: jest ${{ github.action_path }}/marketplace.spec.js --config=${{ github.action_path }}/jest.config.js --ci --reporters=default --reporters=jest-junit
+    # - run: jest ${{ github.action_path }}/marketplace.spec.js --config=${{ github.action_path }}/jest.config.js --ci --reporters=default --reporters=jest-junit
+    - run: jest ${{ github.action_path }}/marketplace.spec.js --config=${{ github.action_path }}/jest.config.js --ci
       shell: bash
     - name: Test Report
       uses: dorny/test-reporter@v1

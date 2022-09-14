@@ -7,7 +7,7 @@ const process = require('process')
 const ajv = new Ajv()
 process.chdir('../')
 const cwd = process.cwd();
-const marketplaceRaw = fs.readFileSync('./marketplace.json', 'utf8');
+const marketplaceRaw = fs.readFileSync(`${cwd}/marketplace.json`, 'utf8');
 
 try {
     var marketplace = JSON.parse(marketplaceRaw)

@@ -132,7 +132,7 @@ describe('Testing constants:', ()=>{
         let constantLabels = Object.keys(marketplace.constants).map(item => item.label) 
         const findDupes = array => array.filter((item, index) => array.indexOf(item) !== index)
         const dupes = findDupes(constantLabels);
-
+        console.log('Dupes',dupes)
         expect(dupes).toHaveLength(0)
     })
 })

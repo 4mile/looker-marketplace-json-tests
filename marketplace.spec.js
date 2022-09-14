@@ -23,23 +23,23 @@ let schema = {
 describe('Marketplace Automation Tests', ()=> {
 
     test('License File Exists', ()=> {
-        const fileExists = fs.existsSync(`${cwd}/LICENSE`);
+        const fileExists = fs.existsSync(`${cwd}/main/LICENSE`);
         expect(fileExists).toBe(true);
     })
     test('READEME File Exists', ()=> {
-        const fileExists = fs.existsSync(`${cwd}/readme.md`);
+        const fileExists = fs.existsSync(`${cwd}/main/readme.md`);
         expect(fileExists).toBe(true);
     })
     test('Marketplace JSON Exists', ()=> {
-        const fileExists = fs.existsSync(`${cwd}/marketplace.json`);
+        const fileExists = fs.existsSync(`${cwd}/main/marketplace.json`);
         expect(fileExists).toBe(true);
     })
     test('Manifest File Exists', ()=> {
-        const fileExists = fs.existsSync(`${cwd}/manifest.lkml`);
+        const fileExists = fs.existsSync(`${cwd}/main/manifest.lkml`);
         expect(fileExists).toBe(true);
     })
     test('At Least One Dashboard File Exists', ()=> {
-        const files = fs.readdirSync(`${cwd}/dashboards/`);
+        const files = fs.readdirSync(`${cwd}/main/dashboards/`);
         dashboardFiles = files.filter( item => {
             return item.includes('dashboard.lookml')
         })
@@ -106,7 +106,7 @@ describe('Marketplace.json Schema:', ()=> {
 describe('Testing constants:', ()=>{
     test( 'Constants Match Between Manifest and Marketplace', async ()=>{
         result = await lookmlParser.parseFiles({
-            source:  `${cwd}/manifest.lkml`,
+            source:  `${cwd}/main/manifest.lkml`,
             fileOutput: "by-type",
             globOptions: {},
             readFileOptions: {encoding:"utf-8"},

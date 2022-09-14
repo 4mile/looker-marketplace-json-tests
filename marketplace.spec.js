@@ -133,6 +133,6 @@ describe('Testing constants:', ()=>{
         const findDupes = array => array.filter((item, index) => array.indexOf(item) !== index)
         const dupes = findDupes(constantLabels);
         console.log('Dupes',dupes)
-        expect(dupes).toHaveLength(0)
+        expect(dupes[0]).toBe(undefined)
     })
 })

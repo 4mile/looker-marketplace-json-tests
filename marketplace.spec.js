@@ -137,3 +137,44 @@ describe('Testing constants:', ()=>{
         expect(dupes[0]).toBe(undefined)
     })
 })
+
+
+describe('Verify File Extensions: ', ()=> {
+    const rootFiles = fs.readdirSync(`${cwd}/main`);
+    const viewsFolderExists = fs.existsSync(`${cwd}/main/views`)
+    const exploresFolderExists = fs.existsSync(`${cwd}/main/explores`)
+
+    test('Model file exists and has extension .lkml', ()=> {
+        modelFile = rootFiles.filter( item => {
+            return item.includes('model.lkml')
+        })
+        expect(modelFile[0]).not.toBe(undefined)
+    })
+    test('Views folder exists', ()=> {
+        expect(viewsFolderExists).toBe(true)
+    })
+
+    if(viewsFolderExists) {
+        test('Views have extension .lkml', ()=> {
+            const files = fs.readdirSync(`${cwd}/main/views`)
+            const badExtViewFiles = files.filter( item => {
+                return item.includes('view') && path.extname(item) != '.lkml'
+            })
+            expect(badExtViewFiles.length).toBe(0)
+        })
+    }
+
+    test('Explores folder exists', ()=> {
+        expect(exploresFolderExists).toBe(true)
+    })
+
+    if(exploresFolderExists) {
+        test('Explores have extension .lkml', ()=> {
+            const files = fs.readdirSync(`${cwd}/main/explores`)
+            const badExtExploreFiles = files.filter( item => {
+                return item.includes('explore') && path.extname(item) != '.lkml'
+            })
+            expect(badExtExploreFiles.length).toBe(0)
+        })
+    }
+})

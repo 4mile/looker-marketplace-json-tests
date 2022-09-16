@@ -1,6 +1,6 @@
 # Marketplace Automation Test Repo
 
-This repository contains infomation and tests meant to streamline the validation of Looker Marketplace projects submitted by third party developers of Custom Visualiztions, Blocks and other Looker custom projects.
+This repository contains infomation and tests meant to streamline the validation of Looker Marketplace projects submitted by third party developers of Custom Visualiztions, Blocks and other Looker custom projects. This testing repo validates Looker specific files.
 
 ## Tools
 
@@ -25,7 +25,7 @@ This repository contains infomation and tests meant to streamline the validation
 
 1. Add the folder named `/.github/workflows` to the Looker repo to be tested. This tells GitHub you have a workflow to run.
 
-2. Upload `marketplace_automation.yml` to `/.github/workflows` folder of the target Looker repo to be tested.
+2. Upload `marketplace_automation.yml` from this repo to `/.github/workflows` folder of the target Looker repo to be tested.
 
 3. Commit and PR to GitHub.
 

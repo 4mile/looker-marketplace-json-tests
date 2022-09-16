@@ -1,9 +1,10 @@
+// Looker Marketplace Automation Tests
+
 const lookmlParser = require('lookml-parser')
 const findDuplicatedPropertyKeys = require('find-duplicated-property-keys');
 const Ajv = require('ajv')
 const fs = require('fs')
 const process = require('process')
-
 const ajv = new Ajv()
 process.chdir('../')
 const cwd = process.cwd();

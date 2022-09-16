@@ -1,4 +1,13 @@
-# Add this file to target repo at location /.github/workflows
+# #################################################################
+# 
+# Market Place Automation Testing Workflow
+# -> This file defines the workflow to be run on the target repo
+# -> The target repo is the repo with Looker assets to be tested
+# -> To use this workflow, you must add this file to the 
+#     target repo at location /.github/workflows
+# 
+# #################################################################
+
 name: Marketplace Automation Tests
 
 on:
@@ -17,10 +26,28 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: 4mile/looker-marketplace-json-tests@main
-
-      # - uses: ./
-        # with:
-        #  user: ['username']
+      - name: Checkout Target Repo
+        uses: actions/checkout@v3
+        with:
+          path: main
+      - name: Checkout Action Repo
+        uses: actions/checkout@v3
+        with:
+          repository: 4mile/looker-marketplace-json-tests
+          path: json-tests
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+        working-directory: ./json-tests
+      - run: npm test
+        working-directory: ./json-tests
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()    # run this step even if previous step failed
+        with:
+          working-directory: ./json-tests
+          name: JEST Tests            # Name of the check run which will be created
+          path: junit.xml             # Path to test results           path: reports/jest-*.xml    
+          reporter: jest-junit        # Format of test results
